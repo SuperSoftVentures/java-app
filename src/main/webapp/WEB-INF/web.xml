@@ -5,11 +5,7 @@
 	version="2.5">
 
 	<login-config>
-		<auth-method>FORM</auth-method>
-		<form-login-config>
-			<form-login-page>/login.html</form-login-page>
-			<form-error-page>/login-failed.html</form-error-page>
-		</form-login-config>
+		<auth-method>BASIC</auth-method>
 	</login-config>
 
 	<security-role>
@@ -19,7 +15,7 @@
 	<security-constraint id="FullAccess">
 		<web-resource-collection>
 			<web-resource-name>Application</web-resource-name>
-			<url-pattern>/TestServlet</url-pattern>
+			<url-pattern>/app/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>employee</role-name>
@@ -33,7 +29,7 @@
 
 	<servlet-mapping>
 		<servlet-name>TestServlet</servlet-name>
-		<url-pattern>/TestServlet</url-pattern>
+		<url-pattern>/app/TestServlet</url-pattern>
 	</servlet-mapping>
 
 </web-app>
