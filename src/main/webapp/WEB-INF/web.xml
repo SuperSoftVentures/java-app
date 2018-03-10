@@ -15,7 +15,7 @@
 	<security-constraint id="FullAccess">
 		<web-resource-collection>
 			<web-resource-name>Application</web-resource-name>
-			<url-pattern>/app/*</url-pattern>
+			<url-pattern>/rest/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>employee</role-name>
@@ -29,7 +29,11 @@
 
 	<servlet-mapping>
 		<servlet-name>TestServlet</servlet-name>
-		<url-pattern>/app/TestServlet</url-pattern>
+		<url-pattern>/rest/TestServlet</url-pattern>
 	</servlet-mapping>
 
+	<resource-ref>
+		<res-ref-name>jdbc/MyDerbyDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+	</resource-ref>
 </web-app>

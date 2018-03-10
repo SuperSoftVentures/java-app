@@ -1,0 +1,43 @@
+-----------------------------------------------------
+Reference links
+-----------------------------------------------------
+https://www.avajava.com/tutorials/lessons/how-do-i-use-a-jdbc-realm-with-tomcat-and-mysql.html?page=1
+https://www.avajava.com/tutorials/lessons/how-do-i-access-mysql-from-a-web-application.html
+-----------------------------------------------------
+Installation
+-----------------------------------------------------
+MySQL Community Server: https://dev.mysql.com/downloads/mysql/
+MySQL JDBC Driver: https://dev.mysql.com/downloads/connector/j/
+MySQL Workbench: https://dev.mysql.com/downloads/workbench/
+-----------------------------------------------------
+Setup
+-----------------------------------------------------
+C:\mysql-5.7.21-winx64\bin> mysqld --initialize --console
+
+User: root
+Password: admin@root
+
+version: 5.7.21
+socket: 3306
+
+I'll add the mysql-connector-java-5.0.4-bin.jar file to my Tomcat's common/lib directory.
+-----------------------------------------------------
+Queries to create DB tables
+-----------------------------------------------------
+DROP DATABASE IF EXISTS ssv;
+CREATE DATABASE ssv;
+USE ssv;
+CREATE TABLE users (
+	user_name varchar(20) NOT NULL PRIMARY KEY,
+	user_pass varchar(32) NOT NULL
+);
+CREATE TABLE user_roles (
+	user_name varchar(20) NOT NULL,
+	role_name varchar(20) NOT NULL,
+	PRIMARY KEY (user_name, role_name)
+);
+INSERT INTO users (user_name, user_pass) VALUES ('manish', 'manish');
+INSERT INTO users (user_name, user_pass) VALUES ('utkarsh', 'utkarsh');
+INSERT INTO user_roles (user_name, role_name) VALUES ('manish', 'employee');
+INSERT INTO user_roles (user_name, role_name) VALUES ('utkarsh', 'employee');
+COMMIT;

@@ -20,11 +20,17 @@
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>${derby.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>java-app</finalName>
 	</build>
 	<properties>
 		<servlet.version>3.0.1</servlet.version>
+		<derby.version>10.12.1.1</derby.version>
 	</properties>
 </project>
